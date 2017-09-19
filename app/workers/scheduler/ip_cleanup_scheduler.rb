@@ -3,7 +3,7 @@
 class Scheduler::IpCleanupScheduler
   include Sidekiq::Worker
 
-  RETENTION_PERIOD = 1.year
+  RETENTION_PERIOD = 7.days
 
   sidekiq_options unique: :until_executed, retry: 0
 
