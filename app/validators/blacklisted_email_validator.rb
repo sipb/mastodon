@@ -2,7 +2,9 @@
 
 class BlacklistedEmailValidator < ActiveModel::Validator
   def validate(user)
-    user.errors.add(:email, '@mit.edu or @*.mit.edu email required') if blocked_email?(user.email)
+    @email = user.email
+
+    user.errors.add(:email, '@mit.edu or @*.mit.edu email required') if blocked_email?
   end
 
   private
